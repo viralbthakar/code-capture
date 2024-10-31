@@ -36,3 +36,23 @@ def upload_file_to_s3(file_path, s3_uri):
         return True
     except Exception as e:
         logger.error(f"Error uploading file to S3: {s3_uri}: {e}")
+        return False
+
+
+def download_file_from_s3(s3_uri, file_path):
+    """
+    Downloads a file from an S3 bucket.
+    Args:
+        s3_uri (str): The S3 URI of the file to download.
+        file_path (str): The local path to save the downloaded file.
+    Returns:
+        bool: True if the file was downloaded successfully, False otherwise.
+    """
+    bucket_name, key = extract_bucket_key_from_s3_uri(s3_uri)
+    s3 = boto3.client("s3")
+    try:
+        s3.download_file(bucket_name, key, file_path)
+        return True
+    except Exception as e:
+        logger.error(f"Error downloading file from S3: {s3_uri}: {e}")
+        return False
