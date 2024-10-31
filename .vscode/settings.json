@@ -1,0 +1,18 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+    },
+
+    "pylint.enabled": true,
+    "pylint.args": [
+        "--max-line-length=79",
+    ],
+
+    "flake8.enabled": true,
+    "flake8.args": [
+        "--max-line-length=79",
+        "--docstring-convention=google",
+        "--verbose"
+    ],
+}
