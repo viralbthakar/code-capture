@@ -15,4 +15,9 @@
         "--docstring-convention=google",
         "--verbose"
     ],
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+    }
 }
